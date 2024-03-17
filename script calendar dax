@@ -1,0 +1,14 @@
+date_min_max = CALENDAR(MIN('DATA),MAX('DATA))
+
+-----
+
+Calendario = ADDCOLUMNS(Date_min_max,
+"Ano",year(Date_min_max[Date]),
+"Semana","W"&WEEKNUM(Date_min_max[Date]),
+"Mês-Abrev",UPPER(FORMAT(Date_min_max[Date],"MMM","PT-BR")),
+"Mês-Num",(Date_min_max[Date].[MonthNo]),
+"Mês-Ano",upper(FORMAT(Date_min_max[Date],"MMM","PT-BR"))&" - " &year(Date_min_max[Date]),
+"Mês-Completo",UPPER(FORMAT(Date_min_max[Date].[Mês],"MMMM","PT-BR")),
+"Quarter","Q"&(Date_min_max[Date].[QuarterNo]),
+"Mês-MêsNum",IF(Date_min_max[Date].[MonthNo]<10,"0"&Date_min_max[Date].[MonthNo],Date_min_max[Date].[MonthNo])&" - "&UPPER(FORMAT(Date_min_max[Date],"MMM","PT-BR"))
+)
