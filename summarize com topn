@@ -1,0 +1,14 @@
+--- top 1 summarizado com max
+= 
+MAXX(
+    TOPN(
+        1,
+        SUMMARIZE(
+            'fAcidentes',
+            'fAcidentes'[br_km],
+            "TotalAcidentes", SUM('fAcidentes'[den])
+        ),
+        [TotalAcidentes], DESC
+    ),
+    [br_km]
+)
